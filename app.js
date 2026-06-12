@@ -50,23 +50,28 @@ app.use("/blog", blogRoutes);
 app.get("/", async (req, res) => {
     try {
 
-        const snapshot = await db
-            .collection("products")
-            .get();
+        const productsSnapshot = await db.collection("products").get();
+        const postsSnapshot = await db.collection("posts").get();
 
-        const products = snapshot.docs.map(doc => ({
+        const products = productsSnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
 
-        res.render("index", { products });
+        const posts = postsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        res.render("index", { products, posts });
 
     } catch (error) {
 
         console.log(error);
 
         res.render("index", {
-            products: []
+            products: [],
+            posts: []
         });
 
     }
