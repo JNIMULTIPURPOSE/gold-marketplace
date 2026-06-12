@@ -82,6 +82,10 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
+
+app.get("/ping-admin", (req, res) => {
+    res.send("ADMIN SYSTEM IS LOADED");
+});
 // ========================
 // SHOP PAGE (PUBLIC STORE)
 // ========================
