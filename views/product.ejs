@@ -9,91 +9,123 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", sans-serif;
-            background: #0B0F14;
-            color: #E6E6E6;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #C8A24A;
-            text-decoration: none;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0B0F14;
+    color: #E6E6E6;
+    line-height: 1.6;
+}
 
-        .product-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: #101C33;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
+/* CENTERING SYSTEM (THIS IS THE FIX) */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
 
-        .product-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
+/* BACK LINK */
+.back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #C8A24A;
+    text-decoration: none;
+    font-weight: 500;
+}
 
-        .placeholder {
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #101820;
-            color: #777;
-            border-radius: 10px;
-        }
+/* PRODUCT LAYOUT */
+.product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: rgba(16, 28, 51, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    align-items: center;
+}
 
-        h1 {
-            color: #C8A24A;
-            margin-bottom: 10px;
-        }
+/* IMAGE */
+.product-image img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
 
-        .price {
-            font-size: 22px;
-            margin: 15px 0;
-            color: #fff;
-        }
+.placeholder {
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #101820;
+    border-radius: 14px;
+    color: #777;
+}
 
-        p {
-            line-height: 1.8;
-            color: #AAB3C5;
-        }
+/* TYPOGRAPHY */
+h1 {
+    font-size: 38px;
+    color: #C8A24A;
+    margin-bottom: 15px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #25D366;
-            color: #fff;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.price {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #ffffff;
+}
 
-        @media (max-width: 768px) {
-            .product-card {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+p {
+    color: #AAB3C5;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, #25D366, #1ebe57);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-card {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <a href="/" class="back">← Back to Home</a>
+    <a href="/" class="back">Home</a>
 
     <div class="product-card">
 
