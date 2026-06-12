@@ -150,9 +150,12 @@
 
 <!-- FEATURED COLLECTION -->
 
+<!-- FEATURED COLLECTION -->
+
 <section>
 
-    <h2 class="section-title">
+```
+<h2 class="section-title">
     Signature Collection
 </h2>
 
@@ -160,124 +163,144 @@
     A curated showcase of exceptional gold products and precious metal pieces.
 </p>
 
-    <div class="cards">
+<div class="cards">
 
-        <% if(products.length === 0){ %>
+    <% if(products.length === 0){ %>
 
-            <div class="card">
-                <h3>No Products Yet</h3>
-                <p>Products will appear here when added by admin.</p>
-            </div>
-
-        <% } else { %>
-
-            <% products.slice(0,6).forEach(product => { %>
-
-                <div class="card">
-
-                    <% if(product.image){ %>
-
-                        <% if(product.image && product.image !== "") { %>
-
-    <img
-        src="/uploads/<%= product.image %>"
-        alt="<%= product.title %>"
-    >
-
-<% } else { %>
-
-    <div style="
-        height: 200px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        background:#101820;
-        color:#777;
-        border-radius:8px;
-    ">
-        No Image Available
-    </div>
-
-<% } %>
-
-                    <% } %>
-
-                    <h3>
-    <%= product.title %>
-</h3>
-
-<p>
-    <%= product.description.substring(0, 100) %>...
-</p>
-
-<br>
-
-<a
-    href="/products/view/<%= product.id %>"
-    class="btn"
->
-    Discover More
-</a>
-
-                </div>
-
-            <% }) %>
-
-        <% } %>
-
-    </div>
-
-</section>
-
-<section class="latest-preview">
-
-    <h2 class="section-title">
-        Latest Articles
-    </h2>
-
-    <% if(typeof posts !== 'undefined' && posts.length > 0){ %>
-
-        <div class="cards">
-
-            <% posts.slice(0,3).forEach(post => { %>
-
-                <div class="card">
-
-                    <h3><%= post.title %></h3>
-
-                    <p>
-                        <%= post.content.substring(0,120) %>...
-                    </p>
-
-                    <a
-                        href="/blog/<%= post.id %>"
-                        class="btn"
-                    >
-                        Read More
-                    </a>
-
-                </div>
-
-            <% }) %>
-
+        <div class="card">
+            <h3>No Products Yet</h3>
+            <p>Products will appear here when added by admin.</p>
         </div>
 
     <% } else { %>
 
-        <div class="card" style="max-width:700px;margin:auto;text-align:center;">
+        <% products.slice(0,6).forEach(product => { %>
 
-            <h3>Insights Coming Soon</h3>
+            <div class="card">
 
+                <% if(product.image && product.image !== "") { %>
+
+                    <img
+                        src="/uploads/<%= product.image %>"
+                        alt="<%= product.title %>"
+                    >
+
+                <% } else { %>
+
+                    <div style="
+                        height:200px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        background:#101820;
+                        color:#777;
+                        border-radius:8px;
+                    ">
+                        No Image Available
+                    </div>
+
+                <% } %>
+
+                <h3>
+                    <%= product.title %>
+                </h3>
+
+                <p>
+                    <%= product.description.substring(0,100) %>...
+                </p>
+
+                <br>
+
+                <a
+                    href="/products/view/<%= product.id %>"
+                    class="btn"
+                >
+                    Discover More
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+</div>
+```
+
+</section>
+
+<!-- LATEST ARTICLES -->
+
+<section class="latest-preview">
+
+```
+<h2 class="section-title">
+    Latest Articles
+</h2>
+
+<p class="section-subtitle">
+    Expert insights, market analysis and precious metals updates.
+</p>
+
+<div class="cards">
+
+    <% if(posts && posts.length > 0){ %>
+
+        <% posts.slice(0,3).forEach(post => { %>
+
+            <div class="card">
+
+                <h3>
+                    <%= post.title %>
+                </h3>
+
+                <p>
+                    <%= post.content.substring(0,120) %>...
+                </p>
+
+                <br>
+
+                <a
+                    href="/blog/<%= post.id %>"
+                    class="btn"
+                >
+                    Read Article
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    <% } else { %>
+
+        <div class="card">
+            <h3>Gold Market Trends</h3>
             <p>
-                Market analysis, investment guides and industry updates
-                will appear here soon.
+                Expert analysis and commentary on the global gold market.
             </p>
+        </div>
 
+        <div class="card">
+            <h3>Investment Insights</h3>
+            <p>
+                Learn about wealth preservation and precious metals.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Industry Updates</h3>
+            <p>
+                Stay informed with the latest developments in the sector.
+            </p>
         </div>
 
     <% } %>
 
+</div>
+```
+
 </section>
+
 
 <!-- ABOUT -->
 
