@@ -4,88 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gold Market Africa - Trusted Gold Investment Platform</title>
+    <title><%= product?.title || "Product" %> - Gold Market Africa</title>
 
-    <meta name="description" content="Buy certified gold bars, coins, and investment-grade gold in Africa. Secure and trusted marketplace.">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <meta name="keywords" content="gold investment, buy gold Kenya, gold bars Africa, gold coins">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #0B0F14;
+            color: #E6E6E6;
+        }
 
-    <meta name="author" content="Gold Market Africa">
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
 
-    <!-- WhatsApp / Facebook preview -->
-    <meta property="og:title" content="Gold Market Africa">
-    <meta property="og:description" content="Trusted gold investment platform in Africa">
-    <meta property="og:type" content="website">
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #C8A24A;
+            text-decoration: none;
+        }
 
-  <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #0B0F14;
-    color: #E6E6E6;
-    margin: 20px;
-}
+        .product-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #101C33;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
 
-a {
-    color: #C8A24A;
-    text-decoration: none;
-}
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-img {
-    max-width: 400px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-</style>  
+        .placeholder {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #101820;
+            color: #777;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #C8A24A;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            margin: 15px 0;
+            color: #fff;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #AAB3C5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<a href="/">← Back to Home</a>
+<div class="container">
 
-<h1><%= product.title %></h1>
+    <a href="/" class="back">← Back to Home</a>
 
-<% if(product.image){ %>
+    <div class="product-card">
 
-    <% if(product.image && product.image !== "") { %>
+        <!-- IMAGE -->
+        <div class="product-image">
 
-    <img
-        src="/uploads/<%= product.image %>"
-        alt="<%= product.title %>"
-    >
+            <% if(product && product.image){ %>
 
-<% } else { %>
+                <% if(product.image !== "") { %>
 
-    <div style="
-        height: 200px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        background:#101820;
-        color:#777;
-        border-radius:8px;
-    ">
-        No Image Available
+                    <img src="/uploads/<%= product.image %>" alt="<%= product.title %>">
+
+                <% } else { %>
+
+                    <div class="placeholder">
+                        No Image Available
+                    </div>
+
+                <% } %>
+
+            <% } else { %>
+
+                <div class="placeholder">
+                    No Image Available
+                </div>
+
+            <% } %>
+
+        </div>
+
+        <!-- INFO -->
+        <div>
+
+            <h1><%= product?.title || "Untitled Product" %></h1>
+
+            <div class="price">
+                💰 Price: <%= product?.price || "N/A" %>
+            </div>
+
+            <p>
+                <%= product?.description || "No description available." %>
+            </p>
+
+            <a
+                class="btn"
+                href="https://wa.me/254700000000?text=Hello%2C%20I%20want%20to%20buy%20<%= encodeURIComponent(product?.title || '') %>"
+                target="_blank"
+            >
+                Buy via WhatsApp
+            </a>
+
+        </div>
+
     </div>
 
-<% } %>
-
-<% } %>
-
-<br><br>
-
-<h2>Price: <%= product.price %></h2>
-
-<p>
-    <%= product.description %>
-</p>
-
-<br>
-
-<a
-    href="https://wa.me/254700000000?text=Hello,%20I%20want%20to%20buy%20<%= product.title %>"
-    target="_blank"
->
-    Buy via WhatsApp
-</a>
+</div>
 
 </body>
 </html>
