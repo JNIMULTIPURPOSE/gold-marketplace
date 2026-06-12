@@ -52,7 +52,7 @@ router.get("/dashboard", adminAuth, (req, res) => {
 // (so /admin doesn't break)
 // =======================
 router.get("/", (req, res) => {
-    if (!req.session.admin) {
+    if (!req.session || !req.session.admin) {
         return res.redirect("/admin/login");
     }
     return res.redirect("/admin/dashboard");
