@@ -126,6 +126,28 @@
 
 </section>
 
+<section class="stats-bar">
+    <div class="stat">
+        <h3>120+</h3>
+        <p>Market Insights</p>
+    </div>
+
+    <div class="stat">
+        <h3>45+</h3>
+        <p>Expert Articles</p>
+    </div>
+
+    <div class="stat">
+        <h3>Daily</h3>
+        <p>Gold Updates</p>
+    </div>
+
+    <div class="stat">
+        <h3>Global</h3>
+        <p>Coverage</p>
+    </div>
+</section>
+
 <!-- FEATURED COLLECTION -->
 
 <section>
@@ -205,6 +227,20 @@
 
     </div>
 
+</section>
+
+<section class="latest-preview">
+    <h2>Latest Articles</h2>
+
+    <div class="grid">
+        <% posts.slice(0,3).forEach(post => { %>
+            <div class="card">
+                <h3><%= post.title %></h3>
+                <p><%= post.content.substring(0, 120) %>...</p>
+                <a href="/blog/<%= post.id %>" class="btn">Read More</a>
+            </div>
+        <% }) %>
+    </div>
 </section>
 
 <!-- ABOUT -->

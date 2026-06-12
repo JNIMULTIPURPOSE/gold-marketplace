@@ -159,3 +159,37 @@ footer {
 .card .btn {
     width: fit-content;
 }
+
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background: #0f141b;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+}
+
+.stat h3 {
+    color: #C8A24A;
+    font-size: 28px;
+    margin: 0;
+}
+
+.stat p {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.featured-insights,
+.latest-preview {
+    padding: 60px 40px;
+}
+
+.featured-insights h2,
+.latest-preview h2 {
+    color: #C8A24A;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
