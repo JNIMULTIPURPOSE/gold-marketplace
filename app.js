@@ -63,17 +63,15 @@ app.get("/", async (req, res) => {
             ...doc.data()
         }));
 
-        res.render("index", { products, posts });
-
-    } catch (error) {
-
-        console.log(error);
-
         res.render("index", {
-            products: [],
-            posts: []
+            products: products || [],
+            posts: posts || []
         });
 
+    } catch (error) {
+        console.log("HOME ERROR:", error);
+
+        res.status(500).send("Home page crashed");
     }
 });
 
