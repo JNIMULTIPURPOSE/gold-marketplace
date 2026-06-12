@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B0F14;
+            color: #E6E6E6;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            background: #0E141B;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            color: #C8A24A;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .logout {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .logout:hover {
+            color: #C8A24A;
+        }
+
+        /* WRAPPER */
+        .container {
+            padding: 40px;
+        }
+
+        /* TITLE */
+        h1 {
+            color: #C8A24A;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #111823;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(200,162,74,0.4);
+        }
+
+        .card h3 {
+            color: #C8A24A;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: #C8A24A;
+            color: #0B0F14;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* FOOT NOTE */
+        .footer-note {
+            margin-top: 40px;
+            color: #555;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="logo">Gold Market Africa Admin</div>
+    <a class="logout" href="/admin/logout">Logout</a>
+</div>
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+    <div class="subtitle">Manage your gold inventory and investment listings</div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Products</h3>
+            <p>Add, edit, and manage gold listings.</p>
+            <a class="btn" href="/products">Manage</a>
+        </div>
+
+        <div class="card">
+            <h3>Add Product</h3>
+            <p>Create a new gold investment listing.</p>
+            <a class="btn" href="/products/new">Create</a>
+        </div>
+
+        <div class="card">
+            <h3>Analytics</h3>
+            <p>Track product engagement (coming soon).</p>
+        </div>
+
+        <div class="card">
+            <h3>Blog Posts</h3>
+            <p>Manage investment articles (SEO traffic).</p>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        Secure Admin Panel • Gold Market Africa © 2026
+    </div>
+
+</div>
+
+</body>
+</html>

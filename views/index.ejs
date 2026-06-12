@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gold Market Africa</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #C8A24A;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #AAB3C5;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #C8A24A;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #AAB3C5;
+            margin-bottom: 40px;
+        }
+
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            padding: 80px 30px;
+        }
+
+        .about p {
+            color: #AAB3C5;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .why-us {
+            padding: 60px 40px;
+        }
+
+        .insights {
+            padding: 60px 40px;
+        }
+
+        .insight-card {
+            background: #101C33;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .insight-card h3 {
+            color: #C8A24A;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+
+    <h2>Gold Market Africa</h2>
+
+    <nav>
+    <a href="/">Home</a>
+    <a href="/shop">Collection</a>
+    <a href="/about">About</a>
+    <a href="/blog">Insights</a>
+    <a href="/contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Rare. Valuable. Timeless.
+        </h1>
+
+        <p>
+            Discover premium gold products, precious metal collections,
+            and luxury assets presented with excellence and authenticity.
+        </p>
+
+        <a href="/shop" class="btn">
+            Explore Collection
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FEATURED COLLECTION -->
+
+<section>
+
+    <h2 class="section-title">
+    Signature Collection
+</h2>
+
+<p class="section-subtitle">
+    A curated showcase of exceptional gold products and precious metal pieces.
+</p>
+
+    <div class="cards">
+
+        <% if(products.length === 0){ %>
+
+            <div class="card">
+                <h3>No Products Yet</h3>
+                <p>Products will appear here when added by admin.</p>
+            </div>
+
+        <% } else { %>
+
+            <% products.slice(0,6).forEach(product => { %>
+
+                <div class="card">
+
+                    <% if(product.image){ %>
+
+                        <% if(product.image && product.image !== "") { %>
+
+    <img
+        src="/uploads/<%= product.image %>"
+        alt="<%= product.title %>"
+    >
+
+<% } else { %>
+
+    <div style="
+        height: 200px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#101820;
+        color:#777;
+        border-radius:8px;
+    ">
+        No Image Available
+    </div>
+
+<% } %>
+
+                    <% } %>
+
+                    <h3>
+    <%= product.title %>
+</h3>
+
+<p>
+    <%= product.description.substring(0, 100) %>...
+</p>
+
+<br>
+
+<a
+    href="/products/view/<%= product.id %>"
+    class="btn"
+>
+    Discover More
+</a>
+
+                </div>
+
+            <% }) %>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <h2 class="section-title">
+        About Gold Market Africa
+    </h2>
+
+    <p>
+        Gold Market Africa is dedicated to showcasing premium gold
+        products and precious metal collections with a commitment to
+        quality, authenticity and professional presentation.
+        Our mission is to provide a trusted platform where excellence,
+        craftsmanship and value are always at the forefront.
+    </p>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="why-us">
+
+    <h2 class="section-title">
+        Why Choose Us
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Authenticity</h3>
+            <p>
+                Every showcased product is presented with quality
+                and professional standards.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Luxury Presentation</h3>
+            <p>
+                A premium experience designed around elegance,
+                trust and value.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Professional Service</h3>
+            <p>
+                Dedicated support and information for every inquiry.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INSIGHTS -->
+
+<section class="insights">
+
+    <h2 class="section-title">
+        Latest Insights
+    </h2>
+
+    <div class="cards">
+
+        <div class="insight-card">
+            <h3>Gold Market Trends</h3>
+            <p>
+                Understanding the movements shaping the precious
+                metals industry.
+            </p>
+        </div>
+
+        <div class="insight-card">
+            <h3>Investment Knowledge</h3>
+            <p>
+                Explore educational content about gold and
+                wealth preservation.
+            </p>
+        </div>
+
+        <div class="insight-card">
+            <h3>Industry Updates</h3>
+            <p>
+                Stay informed with the latest developments in
+                precious metals.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3 style="color:#C8A24A;">
+            Gold Market Africa
+        </h3>
+
+        <p>
+            Premium Gold Products • Precious Metals • Luxury Collections
+        </p>
+
+        <p>
+            © 2026 Gold Market Africa. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>

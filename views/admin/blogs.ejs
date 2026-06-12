@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Blogs</title>
+</head>
+<body>
+
+<h1>Blog Posts</h1>
+
+<a href="/blog/admin/new">+ Create Blog Post</a>
+
+<hr>
+
+<% blogs.forEach(blog => { %>
+
+    <div style="margin-bottom:20px; border:1px solid #ccc; padding:10px;">
+
+        <h3><%= blog.title %></h3>
+
+        <p><%= blog.content.substring(0,150) %>...</p>
+
+        <a href="/blog/admin/delete/<%= blog.id %>">Delete</a>
+
+    </div>
+
+<% }) %>
+
+</body>
+</html>

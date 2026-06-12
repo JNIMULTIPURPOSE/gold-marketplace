@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gold Market Africa - Trusted Gold Investment Platform</title>
+
+    <meta name="description" content="Buy certified gold bars, coins, and investment-grade gold in Africa. Secure and trusted marketplace.">
+
+    <meta name="keywords" content="gold investment, buy gold Kenya, gold bars Africa, gold coins">
+
+    <meta name="author" content="Gold Market Africa">
+
+    <!-- WhatsApp / Facebook preview -->
+    <meta property="og:title" content="Gold Market Africa">
+    <meta property="og:description" content="Trusted gold investment platform in Africa">
+    <meta property="og:type" content="website">
+</head>
+<body>
+
+<a href="/">← Back to Home</a>
+
+<h1><%= product.title %></h1>
+
+<% if(product.image){ %>
+
+    <% if(product.image && product.image !== "") { %>
+
+    <img
+        src="/uploads/<%= product.image %>"
+        alt="<%= product.title %>"
+    >
+
+<% } else { %>
+
+    <div style="
+        height: 200px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#101820;
+        color:#777;
+        border-radius:8px;
+    ">
+        No Image Available
+    </div>
+
+<% } %>
+
+<% } %>
+
+<br><br>
+
+<h2>Price: <%= product.price %></h2>
+
+<p>
+    <%= product.description %>
+</p>
+
+<br>
+
+<a
+    href="https://wa.me/254700000000?text=Hello,%20I%20want%20to%20buy%20<%= product.title %>"
+    target="_blank"
+>
+    Buy via WhatsApp
+</a>
+
+</body>
+</html>

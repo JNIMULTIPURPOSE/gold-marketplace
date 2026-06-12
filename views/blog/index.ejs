@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insights | Gold Market Africa</title>
+    <meta name="description" content="Read gold market insights, industry trends, investment education, and precious metals news.">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+
+        .blog-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .blog-hero h1 {
+            color: #C8A24A;
+            font-size: 42px;
+            font-weight: 400;
+        }
+
+        .blog-hero p {
+            color: #AAB3C5;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .blog-card {
+            background: #101C33;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(200,162,74,0.4);
+        }
+
+        .blog-card h3 {
+            color: #C8A24A;
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            color: #AAB3C5;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #C8A24A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+
+    <h2>Gold Market Africa</h2>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/shop">Collection</a>
+        <a href="/about">About</a>
+        <a href="/blog">Insights</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+</header>
+
+<section class="blog-hero">
+
+    <h1>Market Insights</h1>
+
+    <p>
+        Explore expert articles, market updates, and educational
+        content about gold and precious metals.
+    </p>
+
+</section>
+
+<section class="blog-grid">
+
+    <% if(posts.length === 0){ %>
+
+        <p style="color:#AAB3C5;">No articles available yet.</p>
+
+    <% } else { %>
+
+        <% posts.forEach(post => { %>
+
+            <div class="blog-card">
+
+                <h3><%= post.title %></h3>
+
+                <p>
+                    <%= post.content.substring(0, 150) %>...
+                </p>
+
+                <a href="/blog/<%= post.id %>" class="read-more">
+                    Read More →
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+</section>
+
+<footer>
+    © 2026 Gold Market Africa. All Rights Reserved.
+</footer>
+
+</body>
+</html>

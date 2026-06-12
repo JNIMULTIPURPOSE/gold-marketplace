@@ -1,0 +1,29 @@
+{
+  "name": "gold-marketplace",
+  "version": "1.0.0",
+  "description": "Gold Market Africa Website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "keywords": [
+    "gold",
+    "marketplace",
+    "blog",
+    "firebase"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^1.41.3",
+    "dotenv": "^17.4.2",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "firebase-admin": "^12.7.0",
+    "multer": "^2.1.1",
+    "multer-storage-cloudinary": "^4.0.0"
+  }
+}

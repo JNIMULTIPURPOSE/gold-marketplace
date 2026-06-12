@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insights | Gold Market Africa</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+
+    <h2>Gold Market Africa</h2>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/shop">Collection</a>
+        <a href="/about">About</a>
+        <a href="/blog">Insights</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+</header>
+
+<h1 style="text-align:center; color:#C8A24A; margin-top:40px;">
+    Industry Insights
+</h1>
+
+<div class="cards">
+
+    <% blogs.forEach(blog => { %>
+
+        <div class="card">
+
+            <h3><%= blog.title %></h3>
+
+            <p>
+                <%= blog.content.substring(0,200) %>...
+            </p>
+
+        </div>
+
+    <% }) %>
+
+</div>
+
+</body>
+</html>

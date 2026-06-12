@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #0B1220;
+            color: #E6E6E6;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CONTAINER CARD */
+        .box {
+            width: 420px;
+            background: #101C33; /* navy panel */
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #C8A24A;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #AAB3C5;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding: 10px 12px;
+            background: #0B1220;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #C8A24A;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #C8A24A;
+            border: none;
+            color: #0B1220;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .back a {
+            color: #AAB3C5;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back a:hover {
+            color: #C8A24A;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <h2>Add New Product</h2>
+
+    <form method="POST" action="/products/new" enctype="multipart/form-data">
+
+        <label>Product Title</label>
+        <input name="title" required />
+
+        <label>Price</label>
+        <input name="price" required />
+
+        <label>Description</label>
+        <textarea name="description"></textarea>
+
+        <label>Product Image</label>
+        <input type="file" name="image" />
+
+        <button type="submit">Save Product</button>
+
+    </form>
+
+    <div class="back">
+        <a href="/products">← Back to Products</a>
+    </div>
+
+</div>
+
+</body>
+</html>
