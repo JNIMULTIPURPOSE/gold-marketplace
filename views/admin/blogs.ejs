@@ -1,29 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Blogs</title>
+    <title>Manage Blog Posts - Gold Market Africa</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B0F14;
+            color: #E6E6E6;
+        }
+
+        .wrapper {
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #C8A24A;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: #C8A24A;
+            color: #0B0F14;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #111823;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(200,162,74,0.4);
+        }
+
+        .card h3 {
+            color: #C8A24A;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .actions {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            color: #ff5c5c;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .delete:hover {
+            text-decoration: underline;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 60px;
+            border: 1px dashed rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Blog Posts</h1>
+<div class="wrapper">
 
-<a href="/blog/admin/new">+ Create Blog Post</a>
-
-<hr>
-
-<% blogs.forEach(blog => { %>
-
-    <div style="margin-bottom:20px; border:1px solid #ccc; padding:10px;">
-
-        <h3><%= blog.title %></h3>
-
-        <p><%= blog.content.substring(0,150) %>...</p>
-
-        <a href="/blog/admin/delete/<%= blog.id %>">Delete</a>
-
+    <div class="top-bar">
+        <h1>Blog Posts</h1>
+        <a class="btn" href="/blog/admin/new">+ Create Blog Post</a>
     </div>
 
-<% }) %>
+    <% if(blogs.length === 0) { %>
+
+        <div class="empty">
+            No insights yet. Start publishing market updates.
+        </div>
+
+    <% } else { %>
+
+        <div class="grid">
+
+            <% blogs.forEach(blog => { %>
+
+                <div class="card">
+
+                    <h3><%= blog.title %></h3>
+
+                    <p>
+                        <%= blog.content.substring(0, 120) %>...
+                    </p>
+
+                    <div class="actions">
+                        <span style="color:#666; font-size:12px;">
+                            <%= new Date(blog.createdAt).toDateString() %>
+                        </span>
+
+                        <a class="delete" href="/blog/admin/delete/<%= blog.id %>">
+                            Delete
+                        </a>
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>
 
 </body>
 </html>
