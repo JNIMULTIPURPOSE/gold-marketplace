@@ -9,9 +9,29 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 18px 40px;
-    background: #0E141B;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+    padding: 20px 50px;
+    background: #151f35;
+    border-bottom: 2px solid #C8A24A;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h2 {
+    color: #C8A24A;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #C8A24A;
 }
 
 header h2 {
@@ -33,10 +53,16 @@ nav a:hover {
 }
 
 /* HERO */
-.hero {
-    padding: 80px 40px;
-    text-align: center;
-    background: linear-gradient(180deg, #0E141B, #0B0F14);
+.hero{
+    min-height:85vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.65)
+        ),
+        url("https://images.unsplash.com/photo-1610375461246-83df859d849d");
+    background-size:cover;
+    background-position:center;
 }
 
 .hero h1 {
@@ -192,4 +218,20 @@ footer {
     color: #C8A24A;
     margin-bottom: 20px;
     font-weight: 400;
+}
+
+.newsletter{
+    background:#151f35;
+    text-align:center;
+    padding:80px 30px;
+}
+
+.newsletter h2{
+    color:#C8A24A;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#B5BDC9;
+    margin-bottom:20px;
 }
