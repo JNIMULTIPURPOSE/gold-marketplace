@@ -53,7 +53,7 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 75vh;
+    min-height: 45vh;
     display: flex;
     align-items: flex-start;   /* KEY FIX */
     justify-content: center;
