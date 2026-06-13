@@ -76,3 +76,27 @@ router.get("/admin/delete/:id", async (req, res) => {
 });
 
 module.exports = router;
+
+// ======================
+// VIEW SINGLE BLOG (PUBLIC)
+// ======================
+router.get("/:id", async (req, res) => {
+    try {
+        const doc = await db.collection("blogs").doc(req.params.id).get();
+
+        if (!doc.exists) {
+            return res.status(404).send("Blog not found");
+        }
+
+        const post = {
+            id: doc.id,
+            ...doc.data()
+        };
+
+        res.render("blog/view", { post });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error loading blog post");
+    }
+});
