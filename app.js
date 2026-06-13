@@ -20,11 +20,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-}));
-
-// ========================
-// STATIC FILES
-// ========================
+}));// ========================
 app.use(express.static("public"));
 
 // ========================
@@ -48,32 +44,48 @@ app.use("/blog", blogRoutes);
 // HOME PAGE (PUBLIC)
 // ========================
 app.get("/", async (req, res) => {
-    try {
 
-        const productsSnapshot = await db.collection("products").get();
-        const postsSnapshot = await db.collection("posts").get();
+```
+try {
 
-        const products = productsSnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }));
+    const productsSnapshot = await db.collection("products").get();
 
-        const posts = postsSnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }));
+    const blogSnapshot = await db.collection("blog").get();
 
-        res.render("index", {
-            products: products || [],
-            posts: posts || []
-        });
+    const products = productsSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
 
-    } catch (error) {
-        console.log("HOME ERROR:", error);
+    const posts = blogSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
 
-        res.status(500).send("Home page crashed");
-    }
+    res.render("index", {
+        products,
+        posts
+    });
+
+} catch (error) {
+
+    console.error(error);
+
+    res.render("index", {
+        products: [],
+        posts: []
+    });
+
+}
+```
+
 });
+
+
+
+// ========================
+// STATIC FILES
+
 
 app.get("/about", (req, res) => {
     res.render("about");
@@ -81,10 +93,6 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
     res.render("contact");
-});
-
-app.get("/ping-admin", (req, res) => {
-    res.send("ADMIN SYSTEM IS LOADED");
 });
 // ========================
 // SHOP PAGE (PUBLIC STORE)
