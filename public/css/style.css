@@ -53,21 +53,25 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 55vh;
+    min-height: 75vh;
+    display: flex;
+    align-items: flex-start;   /* KEY FIX */
+    justify-content: center;
+    text-align: center;
+
+    padding-top: 120px;        /* pushes text up nicely */
+
     background:
         linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
         url("https://images.unsplash.com/photo-1610375461246-83df859d849d");
+
     background-size: cover;
     background-position: center;
+}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;   /* KEY */
-    align-items: center;
-
-    padding-top: 70px;
-    padding-bottom: 40px;
-    text-align: center;
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -256,4 +260,86 @@ footer {
 .newsletter p{
     color:#B5BDC9;
     margin-bottom:20px;
+}
+
+
+/* GLOW TEXT */
+.glow {
+    color: #C8A24A;
+    text-shadow:
+        0 0 8px rgba(200,162,74,0.4),
+        0 0 18px rgba(200,162,74,0.2);
+    font-weight: 400;
+    font-size: 52px;
+}
+
+/* CURSOR */
+.cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* HERO POSITION FIX */
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-top: 110px;
+    position: relative;
+
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1610375461246-83df859d849d");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.mouse {
+    width: 20px;
+    height: 30px;
+    border: 2px solid #C8A24A;
+    border-radius: 15px;
+    margin: auto;
+    position: relative;
+}
+
+.mouse::after {
+    content: "";
+    width: 4px;
+    height: 6px;
+    background: #C8A24A;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 1.2s infinite;
+}
+
+@keyframes scroll {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 16px; opacity: 0; }
 }
