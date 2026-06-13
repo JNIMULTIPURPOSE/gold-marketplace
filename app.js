@@ -51,41 +51,33 @@ app.use("/blog", blogRoutes);
 // HOME PAGE (PUBLIC)
 // ========================
 app.get("/", async (req, res) => {
+    try {
+        const productsSnapshot = await db.collection("products").get();
+        const blogSnapshot = await db.collection("blog").get();
 
-```
-try {
+        const products = productsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
 
-    const productsSnapshot = await db.collection("products").get();
+        const posts = blogSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
 
-    const blogSnapshot = await db.collection("blog").get();
+        res.render("index", {
+            products,
+            posts
+        });
 
-    const products = productsSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-    }));
+    } catch (error) {
+        console.error(error);
 
-    const posts = blogSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-    }));
-
-    res.render("index", {
-        products,
-        posts
-    });
-
-} catch (error) {
-
-    console.error(error);
-
-    res.render("index", {
-        products: [],
-        posts: []
-    });
-
-}
-```
-
+        res.render("index", {
+            products: [],
+            posts: []
+        });
+    }
 });
 
 
