@@ -1,23 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Blog</title>
+    <title>Create Insight - Gold Market Africa</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B0F14;
+            color: #E6E6E6;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #C8A24A;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #888;
+        }
+
+        .card {
+            background: #111823;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #0E141B;
+            color: #fff;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #C8A24A;
+        }
+
+        .btn {
+            background: #C8A24A;
+            color: #0B0F14;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            color: #C8A24A;
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Create Blog Post</h1>
+<div class="wrapper">
 
-<form method="POST" action="/blog/admin/new">
+    <a class="back" href="/blog/admin">← Back to Insights</a>
 
-    <input name="title" placeholder="Title" required>
-    <br><br>
+    <div class="header">
+        <h1>Create Market Insight</h1>
+        <p>Publish expert analysis, gold updates, and investment articles</p>
+    </div>
 
-    <textarea name="content" placeholder="Content" rows="10" required></textarea>
-    <br><br>
+    <div class="card">
 
-    <button type="submit">Publish</button>
+        <form method="POST" action="/blog/admin/new">
 
-</form>
+            <label>Insight Title</label>
+            <input type="text" name="title" placeholder="e.g. Gold Market Trends 2026" required>
+
+            <div class="hint">Write a clear SEO-friendly title</div>
+
+            <label>Content</label>
+            <textarea name="content" placeholder="Write your insight here..." required></textarea>
+
+            <div class="hint">
+                Tip: Use structured paragraphs for better readability
+            </div>
+
+            <button class="btn" type="submit">Publish Insight</button>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
 </html>
