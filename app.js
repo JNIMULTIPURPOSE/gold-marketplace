@@ -5,7 +5,14 @@ const session = require("express-session");
 
 const app = express();
 
-const db = require("./firebase");
+let db;
+
+try {
+    db = require("./firebase");
+    console.log("🔥 Firebase loaded successfully");
+} catch (error) {
+    console.error("❌ Firebase failed to load:", error);
+}
 
 // ========================
 // BODY PARSERS
