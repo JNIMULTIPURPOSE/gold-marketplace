@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= post.title %> - Gold Market Africa</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B0F14;
+            color: #E6E6E6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            color: #C8A24A;
+        }
+
+        h1 {
+            color: #C8A24A;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            line-height: 1.8;
+            color: #ccc;
+            font-size: 16px;
+            white-space: pre-line;
+        }
+
+        .card {
+            background: #111823;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href="/blog">← Back to Insights</a>
+
+    <div class="card">
+
+        <h1><%= post.title %></h1>
+
+        <div class="meta">
+            Published: <%= new Date(post.createdAt).toDateString() %>
+        </div>
+
+        <div class="content">
+            <%= post.content %>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
