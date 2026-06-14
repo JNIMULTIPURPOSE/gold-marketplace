@@ -132,7 +132,7 @@
 
 </section>
 
-<section class="market-banner">
+<section class="market-banner fade-section">
 
     <h2>Gold Market Intelligence</h2>
 
@@ -143,7 +143,7 @@
 
 </section>
 
-<section class="stats-bar">
+<section class="stats-bar fade-section">
     <div class="stat">
         <h3>120+</h3>
         <p>Market Insights</p>
@@ -162,6 +162,12 @@
     <div class="stat">
         <h3>Global</h3>
         <p>Coverage</p>
+    </div>
+</section>
+
+<section class="ticker">
+    <div class="ticker-content">
+        Gold Market Intelligence • Investment Insights • Precious Metals • Market Trends • Wealth Preservation • Gold Market Africa •
     </div>
 </section>
 
@@ -246,7 +252,7 @@
 
 <!-- LATEST ARTICLES -->
 
-<section class="latest-preview">
+<section class="latest-preview fade-section">
 
 <h2 class="section-title">
     Latest Articles
@@ -314,7 +320,7 @@
 
 </section>
 
-<section class="featured-topics">
+<section class="featured-topics fade-section">
 
     <h2 class="section-title">
         Explore Topics
@@ -348,7 +354,7 @@
 
 <!-- ABOUT -->
 
-<section class="about">
+<section class="about fade-section">
 
     <h2 class="section-title">
         About Gold Market Africa
@@ -366,7 +372,7 @@
 
 <!-- WHY CHOOSE US -->
 
-<section class="why-us">
+<section class="why-us fade-section">
 
     <h2 class="section-title">
         Why Choose Us
@@ -419,7 +425,7 @@
 
 <!-- INSIGHTS -->
 
-<section class="insights">
+<section class="insights fade-section">
 
     <h2 class="section-title">
         Latest Insights
@@ -455,7 +461,7 @@
 
 </section>
 
-<section class="newsletter">
+<section class="newsletter fade-section">
 
     <h2>Stay Updated</h2>
 
@@ -501,7 +507,25 @@ function typeEffect() {
     }
 }
 
-window.onload = typeEffect;
+window.onload = () => {
+    typeEffect();
+
+    const sections = document.querySelectorAll(".fade-section");
+
+    function revealSections() {
+        sections.forEach(section => {
+            const top = section.getBoundingClientRect().top;
+
+            if (top < window.innerHeight - 100) {
+                section.classList.add("show");
+            }
+        });
+    }
+
+    revealSections();
+
+    window.addEventListener("scroll", revealSections);
+};
 </script>
 
 </body>

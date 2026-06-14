@@ -343,3 +343,34 @@ footer {
     0% { top: 6px; opacity: 1; }
     100% { top: 16px; opacity: 0; }
 }
+
+.ticker{
+    background:#0E141B;
+    border-top:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.ticker-content{
+    display:inline-block;
+    padding:15px 0;
+    color:#C8A24A;
+    animation:tickerMove 20s linear infinite;
+}
+
+@keyframes tickerMove{
+    from{transform:translateX(100%);}
+    to{transform:translateX(-100%);}
+}
+
+.fade-section{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.fade-section.show{
+    opacity:1;
+    transform:translateY(0);
+}
